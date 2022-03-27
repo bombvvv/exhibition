@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+    php1:
+        container_name: php1
+        restart: always
+        build:
+            context: ./src/php
+            dockerfile: Dockerfile
+        volumes:
+            - ./src/php:/var/www/html/
+        ports:
+            - "5001:80"   
+    db:
+        image: mariadb:10.2
+        restart: always
+        environment: 
+            MYSQL_DATABASE: storage
+            MYSQL_USER: bombv
+            MYSQL_PASSWORD: ciao76
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3306"
+        volumes:
+            - ./db-dump:/var/lib/mysql
+volumes:
+    db:
