@@ -1,8 +1,6 @@
   .gallery{
-    margin: 0 auto;
-    position: absolute;
-    top: 25%;
-    left:34%;
+    display:block;
+    margin:16px;
   }
   
   * {
